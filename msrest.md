@@ -8,15 +8,43 @@ generates client libraries for accessing RESTful web services.  Input
 to AutoRest is a spec that describes the REST API using the [OpenAPI
 Specification](https://github.com/OAI/OpenAPI-Specification) format.
 
+* [module `msrest.authentication`](#module-msrestauthentication)
+  * [class `CognitiveServicesCredentials`](#class-cognitiveservicescredentials)
+  * [class `BasicAuthentication`](#class-basicauthentication)
+* [module `msrest.configuration`](#module-msrestconfiguration)
+  * [class `Configuration`](#class-configuration)
+* [module `msrest.universal_http`](#module-msrestuniversal_http)
+  * [class `ClientRequest`](#class-clientrequest)
+* [module `msrest.universal_http.requests`](#module-msrestuniversal_httprequests)
+  * [class `RequestsClientResponse`](#class-requestsclientresponse)
+  * [class `RequestsHTTPSender`](#class-requestshttpsender)
+* [module `msrest.pipeline`](#module-msrestpipeline)
+  * [class `HTTPPolicy`](#class-httppolicy)
+  * [class `Request`](#class-request)
+  * [class `Response`](#class-response)
+  * [class `ClientRawResponse`](#class-clientrawresponse)
+  * [class `_SansIOHTTPPolicyRunner`](#class-_sansiohttppolicyrunner)
+  * [class `Pipeline`](#class-pipeline)
+* [module `msrest.pipeline.requests`](#module-msrestpipelinerequests)
+  * [class `RequestsCredentialsPolicy`](#class-requestscredentialspolicy)
+  * [class `PipelineRequestsHTTPSender`](#class-pipelinerequestshttpsender)
+* [module `msrest.pipeline.universal`](#module-msrestpipelineuniversal)
+  * [class `HeadersPolicy`](#class-headerspolicy)
+  * [class `UserAgentPolicy`](#class-useragentpolicy)
+  * [class `HTTPLogger`](#class-httplogger)
+* [module `msrest.service_client`](#module-msrestservice_client)
+  * [class `ServiceClient`](#class-serviceclient)
+  * [class `SDKClient`](#class-sdkclient)
+
 
 ## module `msrest.authentication` ##
 
-* `Authentication`(`object`)
-* `BasicAuthentication`(`Authentication`)
+* [`Authentication`(`object`)](#class-cognitiveservicescredentials)
+* [`BasicAuthentication`(`Authentication`)](#class-basicauthentication)
 * `BasicTokenAuthentication`(`Authentication`)
 * `OAuthTokenAuthentication`(`BasicTokenAuthentication`)
-* `ApiKeyCredentials`(`Authentication`)
-* `CognitiveServicesCredentials`(`ApiKeyCredentials`)
+* [`ApiKeyCredentials`(`Authentication`)](#class-cognitiveservicescredentials)
+* [`CognitiveServicesCredentials`(`ApiKeyCredentials`)](#class-cognitiveservicescredentials)
 * `TopicCredentials`(`ApiKeyCredentials`)
 
 ### class `CognitiveServicesCredentials` ###
@@ -41,7 +69,7 @@ finally be added to `requests.Session.headers` as
 `Ocp-Apim-Subscription-Key` -- the name of the subscript key in the
 Azure service API.
 
-#### class `BasicAuthentication` ####
+### class `BasicAuthentication` ###
 
 Hierarchy:
 * `msrest.authentication.BasicAuthentication`
@@ -53,7 +81,7 @@ to be added to `requests.Session.auth`.
 
 ## module `msrest.configuration` ##
 
-* `Configuration`(`RequestHTTPSenderConfiguration`)
+* [`Configuration`(`RequestHTTPSenderConfiguration`)](#class-configuration)
 
 ### class `Configuration` ###
 
@@ -95,11 +123,11 @@ corresponding endpoint.
 
 ## module `msrest.universal_http` ##
 
-* `HTTPSender`(`AbstractContextManager`, `ABC`)
-* `HTTPSenderConfiguration`(`object`)
-* `ClientRequest`(`object`)
-* `HTTPClientResponse`(`object`)
-* `ClientResponse`(`HTTPClientResponse`)
+* [`HTTPSender`(`AbstractContextManager`, `ABC`)](#class-requestshttpsender)
+* [`HTTPSenderConfiguration`(`object`)](#class-configuration)
+* [`ClientRequest`(`object`)](#class-clientrequest)
+* [`HTTPClientResponse`(`object`)](#class-requestsclientresponse)
+* [`ClientResponse`(`HTTPClientResponse`)](#class-requestsclientresponse)
 * `ClientRedirectPolicy`(`object`)
 * `ClientProxies`(`object`)
 * `ClientConnection`(`object`)
@@ -112,12 +140,12 @@ HTTP method verbs, URL, headers and data.
 
 ## module `msrest.universal_http.requests` ##
 
-* `HTTPRequestsClientResponse`(`HTTPClientResponse`)
-* `RequestsClientResponse`(`HTTPRequestsClientResponse`, `ClientResponse`)
-* `BasicRequestsHTTPSender`(`HTTPSender`)
-* `RequestsHTTPSender`(`BasicRequestsHTTPSender`)
+* [`HTTPRequestsClientResponse`(`HTTPClientResponse`)](#class-requestsclientresponse)
+* [`RequestsClientResponse`(`HTTPRequestsClientResponse`, `ClientResponse`)](#class-requestsclientresponse)
+* [`BasicRequestsHTTPSender`(`HTTPSender`)](#class-requestshttpsender)
+* [`RequestsHTTPSender`(`BasicRequestsHTTPSender`)](#class-requestshttpsender)
 * `ClientRetryPolicy`(`object`)
-* `RequestHTTPSenderConfiguration`(`HTTPSenderConfiguration`)
+* [`RequestHTTPSenderConfiguration`(`HTTPSenderConfiguration`)](#class-configuration)
 
 ### class `RequestsClientResponse` ###
 
@@ -173,14 +201,14 @@ before calling its superclass's `send()` method.
 
 ## module `msrest.pipeline` ##
 
-* `HTTPPolicy`(`abc.ABC`, `Generic[HTTPRequestType, HTTPResponseType]`)
+* [`HTTPPolicy`(`abc.ABC`, `Generic[HTTPRequestType, HTTPResponseType]`)](#class-httppolicy)
 * `SansIOHTTPPolicy`(`Generic[HTTPRequestType, HTTPResponseType]`)
-* `_SansIOHTTPPolicyRunner`(`HTTPPolicy`, `Generic[HTTPRequestType, HTTPResponseType]`)
-* `Pipeline`(`AbstractContextManager`, `Generic[HTTPRequestType, HTTPResponseType]`)
-* `HTTPSender`(`AbstractContextManager`, `ABC`, `Generic[HTTPRequestType, HTTPResponseType]`)
-* `Request`(`Generic[HTTPRequestType]`)
-* `Response`(`Generic[HTTPRequestType, HTTPResponseType]`)
-* `ClientRawResponse`(`object`)
+* [`_SansIOHTTPPolicyRunner`(`HTTPPolicy`, `Generic[HTTPRequestType, HTTPResponseType]`)](#class-_sansiohttppolicyrunner)
+* [`Pipeline`(`AbstractContextManager`, `Generic[HTTPRequestType, HTTPResponseType]`)](#class-pipeline)
+* [`HTTPSender`(`AbstractContextManager`, `ABC`, `Generic[HTTPRequestType, HTTPResponseType]`)](#class-pipelinerequestshttpsender)
+* [`Request`(`Generic[HTTPRequestType]`)](#class-request)
+* [`Response`(`Generic[HTTPRequestType, HTTPResponseType]`)](#class-response)
+* [`ClientRawResponse`(`object`)](#class-clientrawresponse)
 
 ### class `HTTPPolicy` ###
 
@@ -249,10 +277,10 @@ effects and finally the `_sender`'s `send()` method will be invoked.
 
 ## module `msrest.pipeline.requests` ##
 
-* `RequestsCredentialsPolicy`(`HTTPPolicy`)
+* [`RequestsCredentialsPolicy`(`HTTPPolicy`)](#class-requestscredentialspolicy)
 * `RequestsPatchSession`(`HTTPPolicy`)
 * `RequestsContext`(`object`)
-* `PipelineRequestsHTTPSender`(`HTTPSender`)
+* [`PipelineRequestsHTTPSender`(`HTTPSender`)](#class-pipelinerequestshttpsender)
 
 ### class `RequestsCredentialsPolicy` ###
 
@@ -284,6 +312,11 @@ methods are wrapper for the counterparts of its `driver`.
 
 
 ## module `msrest.pipeline.universal` ##
+
+* [`HeadersPolicy`(`SansIOHTTPPolicy`)](#class-headerspolicy)
+* [`UserAgentPolicy`(`SansIOHTTPPolicy`)](#class-useragentpolicy)
+* [`HTTPLogger`(`SansIOHTTPPolicy`)](#class-httplogger)
+* `RawDeserializer`(`SansIOHTTPPolicy`)
 
 ### class `HeadersPolicy` ###
 
@@ -320,9 +353,9 @@ response in its `on_request()` and `on_response` method.
 
 ## module `msrest.service_client` ##
 
-* `SDKClient`(`object`)
-* `_ServiceClientCore`(`object`)
-* `ServiceClient`(`_ServiceClientCore`)
+* [`SDKClient`(`object`)](#class-sdkclient)
+* [`_ServiceClientCore`(`object`)](#class-serviceclient)
+* [`ServiceClient`(`_ServiceClientCore`)](#class-serviceclient)
 
 ### class `ServiceClient` ###
 
