@@ -357,7 +357,7 @@ It is a wrapper of `msrest.service_client.ServiceClient`.
 
 
 
-###### Reference ######
+## Reference ##
 
 * [Azure SDK for Python - Reference - **msrest** package](https://docs.microsoft.com/en-sg/python/api/msrest/msrest?view=azure-python)
 * [**msrest**](https://pypi.org/project/msrest/)
